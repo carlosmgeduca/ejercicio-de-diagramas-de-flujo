@@ -1,29 +1,40 @@
 import streamlit as st
 
-# Título de la aplicación
-st.title("Calculadora del Número Mayor")
-st.write("Introduce tres números distintos y el programa te dirá cuál es el mayor.")
+st.title("¿Cuál es el mayor?")
+st.write("Introduce los valores para A, B y C.")
 
-# Creamos 3 columnas para que quede ordenado visualmente
+# 1. Las entradas (Inputs)
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    a = st.number_input("Introduce el nº A", value=0)
+    a = st.number_input("Introduce el nº A", value=0.0)
 with col2:
-    b = st.number_input("Introduce el nº B", value=0)
+    b = st.number_input("Introduce el nº B", value=0.0)
 with col3:
-    c = st.number_input("Introduce el nº C", value=0)
+    c = st.number_input("Introduce el nº C", value=0.0)
 
-# Lógica sencilla para calcular el mayor
-# (Usamos la función max() de Python que es la forma más directa)
-mayor = max(a, b, c)
+# 2. La lógica para decidir la LETRA
+# Comparamos para ver quién gana
+letra_ganadora = ""
 
-# Línea divisoria visual
+if a > b and a > c:
+    letra_ganadora = "A"
+elif b > a and b > c:
+    letra_ganadora = "B"
+elif c > a and c > b:
+    letra_ganadora = "C"
+else:
+    # Caso de empate (opcional, pero bueno tenerlo por si ponen números iguales)
+    letra_ganadora = "Hay un empate entre los mayores"
+
+# 3. Mostrar el resultado
 st.divider()
 
-# Mostrar el resultado final destacado
-# Usamos un f-string para meter la variable dentro del texto
-st.header(f"El nº mayor es: {mayor}")
+# Aquí mostramos exactamente lo que pediste
+if "empate" in letra_ganadora:
+    st.header(f"{letra_ganadora}")
+else:
+    st.header(f"El nº mayor es: {letra_ganadora}")
 
-# Opcional: Un mensaje extra de confirmación
-st.success(f"Cálculo realizado: Entre {a}, {b} y {c}, el ganador es {mayor}.")
+# (Opcional) Texto pequeño abajo para confirmar valores
+st.caption(f"Valores revisados: A={a}, B={b}, C={c}")
