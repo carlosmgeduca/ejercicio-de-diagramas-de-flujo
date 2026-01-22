@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("¿Cuál es el mayor?")
+st.title("¿Cuál es el mayor? SIN DETECTOR DE IGUALES")
 st.write("Introduce los valores para A, B y C.")
 
 # 1. Las entradas (Inputs)
