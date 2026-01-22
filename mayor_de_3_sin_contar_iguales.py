@@ -8,11 +8,11 @@ def main():
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        A = st.number_input("Número A", value=0.0, step=1.0)
+        A = st.number_input("Número A", value=0, step=1.0)
     with col2:
-        B = st.number_input("Número B", value=0.0, step=1.0)
+        B = st.number_input("Número B", value=0, step=1.0)
     with col3:
-        C = st.number_input("Número C", value=0.0, step=1.0)
+        C = st.number_input("Número C", value=0, step=1.0)
 
     # Botón para ejecutar
     if st.button("Calcular cuál es mayor"):
