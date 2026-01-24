@@ -1,51 +1,46 @@
 import streamlit as st
 
-st.set_page_config(page_title="Ordenador de Números", layout="centered")
+st.set_page_config(page_title="Lógica de Diagramas", layout="centered")
 
-st.title("🔢 Ordenar de Mayor a Menor")
-st.write("Este programa ayuda a entender la condición: **¿Es A > B?**")
+st.title("📂 Orden de Variables")
+st.write("Objetivo: Determinar si el orden de salida es **A, B** o **B, A**.")
 
-# Entrada de datos (A y B)
+# Entrada de datos
 col1, col2 = st.columns(2)
 with col1:
-    a = st.number_input("Introduce el número A:", value=0)
+    a = st.number_input("Valor de A:", value=0)
 with col2:
-    b = st.number_input("Introduce el número B:", value=0)
+    b = st.number_input("Valor de B:", value=0)
 
 st.divider()
 
-# Lógica del programa (Representando el rombo del diagrama de flujo)
-if st.button("ORDENAR Y VER LÓGICA"):
+if st.button("EJECUTAR COMPARACIÓN"):
+    # Representación visual de la decisión
+    st.write(f"Evaluando condición: **¿A > B?** ({a} > {b})")
+    
     if a > b:
-        # Camino del SÍ
-        st.success(f"Resultado: **{a}, {b}**")
-        st.info(f"Lógica seguida: Como A ({a}) es mayor que B ({b}), el orden es A, B.")
+        # Resultado basado en nombres de variables
+        st.subheader("Orden: **A, B**")
+        st.success("La condición fue VERDADERA (A es mayor).")
     elif b > a:
-        # Camino del NO
-        st.success(f"Resultado: **{b}, {a}**")
-        st.info(f"Lógica seguida: Como B ({b}) es mayor que A ({a}), el orden es B, A.")
+        st.subheader("Orden: **B, A**")
+        st.success("La condición fue FALSA (B es mayor).")
     else:
-        # Caso especial: Igualdad
-        st.warning(f"Resultado: **{a} y {b} son iguales**")
-        st.info("Lógica: No hay uno mayor que otro.")
+        st.subheader("Orden: **A = B**")
+        st.warning("Los valores son iguales.")
 
-# Visualización para los alumnos (Representación del Diagrama de Flujo en texto)
-with st.expander("Ver lógica del Diagrama de Flujo"):
-    st.code(f"""
-    INICIO
-      │
-      ▼
-    Leer A ({a}) y B ({b})
-      │
-      ▼
-    ¿Es A > B? ─── NO ──▶ [ Mostrar B, A ]
-      │                   (Caso: {b} > {a})
-      ▼
-      SÍ
-      │
-    [ Mostrar A, B ]
-    (Caso: {a} > {b})
-      │
-      ▼
-     FIN
-    """)
+# Representación gráfica para clase
+st.write("---")
+st.write("### Representación en Diagrama de Flujo")
+
+
+
+st.code(f"""
+      [ INICIO ]
+          |
+    +-----+-----+
+    | Leer A, B |
+    +-----+-----+
+          |
+    ¿Es A > B? ---------+
+      |  (S
