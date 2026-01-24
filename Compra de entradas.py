@@ -53,4 +53,19 @@ with st.expander("Ver Diagrama de Flujo"):
       |               |
     ( NO )          ( SÍ )
       |               |
- [ ERROR ]{error_v}
+ [ ERROR ]{error_v}   [ CALCULAR ]{exito_v}
+      |               |
+      |       +-------V-------+
+      |       | ¿2? -> 10%    |
+      |       | ¿3? -> 15%    |
+      |       | ¿4? -> 20%    |
+      |       +-------+-------+
+      |               |
+      +-------+-------+
+              |
+      +-------V-------+
+      | Mostrar PAGO  |
+      +-------+-------+
+              |
+           [ FIN ]
+    """)
